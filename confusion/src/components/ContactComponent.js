@@ -14,7 +14,13 @@ class Contact extends Component {
             email: '',
             agree: false,
             contactType: 'Tel.',
-            message: ''
+            message: '',
+            touched: {
+                firstname: false,
+                lastname: false,
+                telnum: false,
+                email: false
+            }
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -36,6 +42,21 @@ class Contact extends Component {
         console.log('Current State is: ' + JSON.stringify(this.state));
         alert('Current State is: ' + JSON.stringify(this.state));
         event.preventDefault();
+    }
+    handleBlur = (filed) => (evt) => {
+        this.setState({
+            touched: {...this.state.touched, [filed]: true}
+        });
+    }
+    validate(firstname, lastname, telnum, email){
+        const errors = {
+            firstname: "",
+            lastname: "",
+            telnum: "",
+            email: ""
+        };
+        if(this.state.touched.firstname && firstname.length < 3)
+            errors.firstname = 'Firstname should be greater or equal to 3 characters';
     }
     render() {    return(
         <div className="container">
