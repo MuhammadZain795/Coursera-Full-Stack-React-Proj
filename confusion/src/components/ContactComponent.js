@@ -12,15 +12,10 @@ class Contact extends Component {
     constructor(props) {
         super(props);
 
-        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         
     }
-    // handleSubmit(event) {
-    //     console.log('Current State is: ' + JSON.stringify(this.state));
-    //     alert('Current State is: ' + JSON.stringify(this.state));
-    //     event.preventDefault();
-    // }
+
     handleSubmit(values) {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
